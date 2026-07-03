@@ -1,0 +1,27 @@
+Command Executed: mkdir -p ProjectWorkspace/docs && ls -ld ProjectWorkspace
+
+Observations: 
+I created a new project workspace directory structure, including a nested documentation folder, using the -p flag.
+Running the ls -ld command allowed me to observe the default permissions and ownership details assigned by the system upon creation.
+This established a baseline before implementing stricter security controls for the project team.
+
+Command Executed: chmod 750 ProjectWorkspace && ls -ld ProjectWorkspace
+
+Observations: 
+I modified the directory permissions to 750 to secure the project data. 
+This ensures the owner has full read, write, and execute access, while the assigned group is restricted to reading and executing only. 
+All other users have zero access rights, effectively protecting the sensitive project files from unauthorized modification or viewing.
+
+Command Executed: umask
+
+Observations: 
+I checked the active umask value, which dictates the default permissions stripped away from newly created files and directories.
+The system umask acts as a baseline security filter.
+By subtracting this value from the maximum default permissions (666 for files), the operating system automatically ensures new data isn't overly permissive.
+
+Command Executed: touch ProjectWorkspace/test.txt && ls -l ProjectWorkspace/test.txt
+
+Observations: 
+I created a test document inside the secure workspace to observe how permissions are applied to new files.
+The ls -l output demonstrated the direct effect of the umask on the file creation process.
+The file automatically received restricted permissions, proving that the workspace environment is properly configured to protect new project data.
