@@ -1,24 +1,34 @@
 Command Executed: whoami && id
 
 Observations: 
-Running the whoami command successfully identified my active username within the Linux environment. Following up with the id command provided a detailed breakdown of my user account credentials. It confirmed my User ID (UID) and Group ID (GID), while also displaying the supplementary groups my account is associated with, which dictate my overall system privileges.
+Running the whoami command successfully identified my active username within the Linux environment.
+Following up with the id command provided a detailed breakdown of my user account credentials.
+It confirmed my User ID (UID) and Group ID (GID), while also displaying the supplementary groups my account is associated with, which dictate my overall system privileges.
 
 Command Executed: echo $SHELL
 
 Observations: 
-By querying the $SHELL environment variable, I was able to determine the default command-line interpreter assigned to my user account. The system verified that the Bourne Again SHell (bash) is currently in use. This confirms the specific shell environment where all subsequent system commands will be executed.
+By querying the $SHELL environment variable, I was able to determine the default command-line interpreter assigned to my user account.
+The system verified that the Bourne Again SHell (bash) is currently in use.
+This confirms the specific shell environment where all subsequent system commands will be executed.
 
 Command Executed: pwd
 
 Observations: 
-The pwd (print working directory) command was utilized to verify my exact location within the Linux file system hierarchy. The output confirmed my current absolute path, ensuring I am operating out of the correct home directory. Verifying the active working directory is a crucial first step before creating new project workspaces.
+The pwd (print working directory) command was utilized to verify my exact location within the Linux file system hierarchy.
+The output confirmed my current absolute path, ensuring I am operating out of the correct home directory.
+Verifying the active working directory is a crucial first step before creating new project workspaces.
 
 Command Executed: ls -la
 
 Observations: 
-I executed ls -la to generate a comprehensive list of all contents within the current workspace. The -la flags were necessary to expose hidden system files and to display detailed metadata in a long-listing format. This allowed me to thoroughly inspect the read, write, and execute permissions, ownership details, and timestamps for all files.
+I executed ls -la to generate a comprehensive list of all contents within the current workspace.
+The -la flags were necessary to expose hidden system files and to display detailed metadata in a long-listing format.
+This allowed me to thoroughly inspect the read, write, and execute permissions, ownership details, and timestamps for all files.
 
 Command Executed: ping -c 4 google.com
 
 Observations: 
-To verify outbound network connectivity, I sent ICMP echo requests to a public external domain. By using the -c 4 flag, I explicitly limited the test to exactly four packets to prevent the process from running infinitely. The output statistics showed a 0% packet loss, confirming that the virtual Linux environment has a stable internet connection.
+To verify outbound network connectivity, I sent ICMP echo requests to a public external domain.
+By using the -c 4 flag, I explicitly limited the test to exactly four packets to prevent the process from running infinitely.
+The output statistics showed a 0% packet loss, confirming that the virtual Linux environment has a stable internet connection.
