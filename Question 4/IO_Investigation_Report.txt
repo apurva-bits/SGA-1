@@ -1,0 +1,27 @@
+Command Executed: lsof | head -n 10
+
+Observations: 
+I utilized the lsof (List Open Files) command to identify active files currently being accessed by the system.
+Piping the output to the head command limited the display to the first ten entries for readability.
+This demonstrates how Linux treats almost everything as a file, tracking active processes, libraries, and sockets comprehensively.
+
+Command Executed: ls -l /proc/$$/fd
+
+Observations: 
+By listing the contents of the file descriptor directory for my current shell process, I was able to observe standard I/O streams.
+The output showed descriptors 0, 1, and 2, representing standard input, standard output, and standard error.
+This visualizes how the Linux kernel fundamentally manages and maps I/O operations to physical terminal endpoints.
+
+Command Executed: ls /nonexistentfile 2> err.txt && cat err.txt
+
+Observations: 
+I intentionally executed a command on a missing file to generate a system error.
+Instead of letting the error print to the terminal, I used the 2> operator to successfully redirect standard error into a dedicated log file.
+Reading the log file confirmed that the "No such file" message was captured, which is vital for application logging.
+
+Command Executed: ulimit -a
+
+Observations: 
+I executed the ulimit -a command to review the resource limits configured for my current user session.
+The output provided critical system thresholds, including the maximum number of open file descriptors allowed simultaneously.
+Understanding these limits is essential for troubleshooting application crashes caused by excessive I/O requests.
