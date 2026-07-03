@@ -1,0 +1,21 @@
+Storage Health Assessment and Documentation
+
+Available Storage Devices:
+The block storage devices currently attached to the system were evaluated using lsblk.
+The primary disk partitions are structured correctly, and the root volume shows adequate allocation for the operating system and basic applications.
+No unformatted or missing block devices were detected during the hardware scan.
+
+Mounted File Systems & Disk Usage:
+The active file systems were analyzed for physical capacity using df -h.
+The root filesystem has sufficient available gigabytes, operating well below the critical 90% threshold.
+Temporary filesystems (tmpfs) used for runtime data are stable with minimal usage, ensuring the system memory is not being unnecessarily constrained.
+
+Inode Utilization:
+The index node (inode) utilization was assessed using df -i to ensure the system will not run out of file creation capacity.
+The current inode usage is very low, meaning millions of new files can still be generated.
+This confirms that small-file exhaustion will not be an issue for the new application server deployment.
+
+Storage Health Observations & Recommendations:
+Overall, the storage resources are healthy and properly provisioned for the new deployment.
+Recommendation 1: Implement an automated log rotation policy to prevent application logs from eventually filling the root partition.
+Recommendation 2: Set up proactive monitoring alerts to notify administrators if disk usage exceeds 80% capacity in the future.
