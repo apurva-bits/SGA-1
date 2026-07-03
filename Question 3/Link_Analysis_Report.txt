@@ -1,0 +1,27 @@
+Command Executed: echo "data" > original.txt && ln original.txt hardlink.txt && ln -s original.txt symlink.txt
+
+Observations: 
+I created a baseline text file and subsequently generated both a hard link and a symbolic (soft) link pointing to it.
+This setup provides the necessary file structure to investigate how the Linux kernel handles different types of file system references.
+The hard link acts as a direct mirror, while the symbolic link acts as a path shortcut.
+
+Command Executed: ls -li
+
+Observations: 
+Using the -i flag revealed the metadata and inode numbers for all three files.
+The output clearly showed that the original file and the hard link share the exact same inode number, meaning they point to the identical data block on the disk.
+In contrast, the symbolic link possesses a unique inode number and much smaller file size.
+
+Command Executed: rm original.txt && cat hardlink.txt
+
+Observations: 
+I deleted the original file to test the resilience of the links.
+Attempting to read the hard link was completely successful, and the original text data was displayed.
+This proves that as long as at least one hard link exists, the underlying disk data remains intact and accessible by the operating system.
+
+Command Executed: cat symlink.txt
+
+Observations: 
+When I attempted to read the symbolic link after deleting the original file, the system returned a "No such file or directory" error.
+This experiment concludes that symbolic links only store the string path to the target file.
+Once the target path is destroyed, the symbolic link breaks, rendering the reference entirely useless.
